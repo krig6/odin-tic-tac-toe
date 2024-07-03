@@ -42,3 +42,9 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
+/* Header */
+header {
+  margin-top: 2rem;
+  font-size: 3rem;
+}
