@@ -7,6 +7,8 @@
     <title>Odin Tic Tac Toe</title>
     <!-- CSS Styling -->
     <link rel="stylesheet" href="style.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- JavaScript -->
     <script src="script.js" defer></script>
     <!-- Favicon -->
@@ -14,7 +16,25 @@
 </head>
 
 <body>
+    <div class="game-container">
+        <header>
+            <h1>Odin Tic Tac Toe</h1>
+        </header>
 
+        <main>
+            <section class="game-board"></section>
+            <section class="game-buttons">
+                <div class="player-info">
+                    <i class="player-icon bx bx-x"></i>
+                    <span class="player-name">Player One</span>
+                </div>
+                <div class="player-info">
+                    <i class="player-icon bx bx-radio-circle"></i>
+                    <span class="player-name">Player Two</span>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>
