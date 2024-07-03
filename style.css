@@ -48,3 +48,32 @@ header {
   margin-top: 2rem;
   font-size: 3rem;
 }
+
+/* Game Buttons */
+.game-buttons {
+  display: flex;
+  gap: 1rem;
+  font-size: 3.5rem;
+}
+
+.player-info {
+  border: 2px solid var(--accent-light-color);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8rem;
+  border-bottom: none;
+  border-radius: 0.4rem;
+}
+
+.player-info i {
+  font-weight: 1000;
+}
+
+/* Game Message */
+.game-message {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+}
