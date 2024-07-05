@@ -23,17 +23,17 @@
 
         <main>
             <section class="game-buttons">
-                <div class="player-info">
-                    <i class="player-icon bx bx-x"></i>
-                    <span class="x-score"></span>
+                <div class="player-info player-x active-turn">
+                    <i class="bx bx-x x-mark"></i>
+                    <span class="score" data-x-score>0</span>
                 </div>
-                <div class="player-info">
-                    <i class="player-icon bx bx-radio-circle"></i>
-                    <span class="o-score"></span>
+                <div class="player-info player-o">
+                    <i class="bx bx-radio-circle o-mark"></i>
+                    <span class="score" data-o-score>0</span>
                 </div>
             </section>
-            <section class="game-message">
-                <p>Start game or select player</p>
+            <section>
+                <p class="game-notification" data-message>X's turn</p>
             </section>
             <section class="game-board" data-board>
                 <button class="square" id="1" data-cell></button>
