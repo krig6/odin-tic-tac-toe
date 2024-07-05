@@ -112,3 +112,14 @@ main {
 .square:nth-child(-n + 6) {
   border-bottom: 5px solid var(--accent-light-color);
 }
+
+/* New Game Button */
+.new-btn {
+  cursor: pointer;
+  padding: 1rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 900;
+  border: 4px solid var(--accent-light-color);
+  border-radius: 1rem;
+}
