@@ -96,5 +96,19 @@ main {
 
 /* Grid squares */
 .square {
-  border: 2px solid var(--o-mark-color);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 8rem;
+  color: var(--x-mark-color);
+}
+
+/* Border-right */
+.square:not(:nth-child(3n)) {
+  border-right: 5px solid var(--accent-light-color);
+}
+
+/* Border-bottom */
+.square:nth-child(-n + 6) {
+  border-bottom: 5px solid var(--accent-light-color);
 }
