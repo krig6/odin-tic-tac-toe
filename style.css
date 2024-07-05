@@ -49,6 +49,14 @@ header {
   font-size: 3rem;
 }
 
+/* Main */
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* Game Buttons */
 .game-buttons {
   display: flex;
@@ -57,7 +65,6 @@ header {
 }
 
 .player-info {
-  border: 2px solid var(--accent-light-color);
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
