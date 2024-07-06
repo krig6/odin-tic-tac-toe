@@ -62,3 +62,25 @@ const gameFlow = (() => {
 
     return { getCurrentMark };
 })();
+
+// Module for managing display messages and elements
+const display = (() => {
+    const messageContainer = document.querySelector('[data-message]');
+
+    //  Displays the winner message based on the game outcome
+    const displayWinnerMessage = (winner) => {
+        if (winner === 'Draw') {
+            setMessageElement(`It's a draw!`)
+        } else {
+            setMessageElement(`Player ${winner} has won!`);
+            setScore(gameFlow.getCurrentMark());
+        }
+    }
+
+    // Sets the text content of the message container element
+    const setMessageElement = (message) => {
+        messageContainer.textContent = message;
+    }
+
+    return { setMessageElement, displayWinnerMessage }
+})();
