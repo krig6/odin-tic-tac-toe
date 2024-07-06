@@ -30,3 +30,19 @@ const gameBoard = (() => {
 
     return { setMarker, getMarker, resetBoard }
 })();
+
+// Module to handle the game flow logic for the Tic Tac Toe game
+const gameFlow = (() => {
+    // Game state variables
+    let gameOver = false;
+    let playerX = createPlayer('X');
+    let playerO = createPlayer('O');
+    let round = 1;
+
+    // Function to get the current player's mark based on the round number
+    const getCurrentMark = () => {
+        return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
+    };
+
+    return { getCurrentMark };
+})();
