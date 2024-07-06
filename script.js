@@ -44,5 +44,21 @@ const gameFlow = (() => {
         return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
     };
 
+    // Checks if the current move results in a win for the current player.
+    const checkWinner = (buttonIndex) => {
+        // Define all possible winning combinations of indices on the game board
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Columns
+            [0, 4, 8], [2, 4, 6]              // Diagonals
+        ];
+
+        // Filter winning combinations to include only those that have the current buttonIndex
+        return winningCombinations
+            .filter(combination => combination.includes(buttonIndex))
+            // Check if all indices in any of the filtered combinations have the same mark as the current player's mark
+            .some(possibleCombination => possibleCombination.every(index => gameBoard.getMarker(index) === getCurrentMark()));
+    }
+
     return { getCurrentMark };
 })();
