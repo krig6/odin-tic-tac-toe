@@ -60,7 +60,28 @@ const gameFlow = (() => {
             .some(possibleCombination => possibleCombination.every(index => gameBoard.getMarker(index) === getCurrentMark()));
     }
 
-    return { getCurrentMark };
+    // Plays a round of the game based on the button clicked
+    const playRound = (button) => {
+        // Place the current player's marker on the game board
+        gameBoard.setMarker(button - 1, getCurrentMark());
+
+        // Check if the current move results in a win
+        if (checkWinner(button - 1)) {
+            display.displayWinnerMessage(getCurrentMark());
+            gameOver = true;
+            return;
+        }
+        if (round === 9) {
+            display.displayWinnerMessage('Draw');
+            gameOver = true;
+            return;
+        }
+        round++;
+
+        display.setMessageElement(`${getCurrentMark()}'s turn`)
+    }
+
+    return { getCurrentMark, playRound };
 })();
 
 // Module for managing display messages and elements
