@@ -87,6 +87,7 @@ const gameFlow = (() => {
 // Module for managing display messages and elements
 const display = (() => {
     const messageContainer = document.querySelector('[data-message]');
+    const cellElements = document.querySelectorAll('[data-cell]');
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -101,6 +102,13 @@ const display = (() => {
     // Sets the text content of the message container element
     const setMessageElement = (message) => {
         messageContainer.textContent = message;
+    }
+
+    // Update the display of each game board cell with the current marker from gameBoard
+    const updateGameBoard = () => {
+        for (let i = 0; i < cellElements.length; i++) {
+            cellElements[i].textContent = gameBoard.getMarker(i);
+        }
     }
 
     return { setMessageElement, displayWinnerMessage }
