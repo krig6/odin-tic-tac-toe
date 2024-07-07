@@ -120,7 +120,7 @@ const display = (() => {
 
     // Updates the visual indication of the current player's turn on the UI
     const handleTurn = () => {
-        const currentPlayerMark = gameBoard.getCurrentMark();
+        const currentPlayerMark = gameFlow.getCurrentMark();
 
         if (currentPlayerMark === 'X') {
             playerX.classList.add('active-turn');
