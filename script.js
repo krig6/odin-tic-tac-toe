@@ -169,5 +169,5 @@ const display = (() => {
         cell.addEventListener('click', cellClickHandler);
     })
 
-    return { setMessageElement, displayWinnerMessage, updateScore }
+    return { setMessageElement, displayWinnerMessage }
 })();
