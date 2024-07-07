@@ -147,6 +147,13 @@ const display = (() => {
         targetElement.classList.add(currentPlayerMark);
     }
 
+    // Clears marker classes ('O' and 'X') from all board cells.
+    const clearMarkClasses = () => {
+        cellElements.forEach(cell => {
+            cell.classList.remove('O', 'X');
+        });
+    }
+
     // Updates the score display for the specified player ('X' or 'O').
     const updateScore = (player) => {
         if (player === 'X') {
