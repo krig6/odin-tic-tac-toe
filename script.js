@@ -103,6 +103,7 @@ const display = (() => {
     const playerO = document.querySelector('[data-player-o]')
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
+    const newGameButton = document.querySelector('[data-action="new-game"]');
 
 
     //  Displays the winner message based on the game outcome
@@ -187,6 +188,15 @@ const display = (() => {
 
     cellElements.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
+    })
+
+    newGameButton.addEventListener('click', () => {
+        gameBoard.resetBoard();
+        gameFlow.resetGameFlow();
+        updateGameBoard();
+        clearMarkClasses();
+        resetPlayerTurn();
+        setMessageElement(`X's turn`);
     })
 
     return { setMessageElement, displayWinnerMessage }
