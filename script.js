@@ -81,7 +81,12 @@ const gameFlow = (() => {
         display.setMessageElement(`${getCurrentMark()}'s turn`)
     }
 
-    return { getCurrentMark, playRound };
+    // Checks if the game is over and returns true if it is, false otherwise.
+    const checkGameOver = () => {
+        return gameOver;
+    }
+
+    return { checkGameOver, getCurrentMark, playRound };
 })();
 
 // Module for managing display messages and elements
