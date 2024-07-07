@@ -95,6 +95,8 @@ const display = (() => {
     const cellElements = document.querySelectorAll('[data-cell]');
     const playerX = document.querySelector('[data-player-x]')
     const playerO = document.querySelector('[data-player-o]')
+    const scoreElementX = document.querySelector('[data-x-score]');
+    const scoreElementO = document.querySelector('[data-o-score]');
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -102,7 +104,7 @@ const display = (() => {
             setMessageElement(`It's a draw!`)
         } else {
             setMessageElement(`Player ${winner} has won!`);
-            setScore(gameFlow.getCurrentMark());
+            updateScore(gameFlow.getCurrentMark());
         }
     }
 
@@ -139,6 +141,15 @@ const display = (() => {
         targetElement.classList.add(currentPlayerMark);
     }
 
+    // Updates the score display for the specified player ('X' or 'O').
+    const updateScore = (player) => {
+        if (player === 'X') {
+            scoreElementX.textContent = parseInt(scoreElementX.textContent) + 1;
+        } else if (player === 'O') {
+            scoreElementO.textContent = parseInt(scoreElementO.textContent) + 1;
+        }
+    }
+
     // Handles click events on individual board cells
     const cellClickHandler = (event) => {
         const clickedCell = event.target;
@@ -158,5 +169,5 @@ const display = (() => {
         cell.addEventListener('click', cellClickHandler);
     })
 
-    return { setMessageElement, displayWinnerMessage }
+    return { setMessageElement, displayWinnerMessage, updateScore }
 })();
