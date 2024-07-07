@@ -131,5 +131,13 @@ const display = (() => {
         }
     }
 
+    // Sets the color of the marker based on the current player's mark.
+    const setMarkColor = (event) => {
+        const targetElement = event.target;
+        const currentPlayerMark = gameFlow.getCurrentMark();
+
+        targetElement.classList.add(currentPlayerMark);
+    }
+
     return { setMessageElement, displayWinnerMessage }
 })();
