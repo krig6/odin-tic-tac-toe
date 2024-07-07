@@ -104,6 +104,7 @@ const display = (() => {
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
 
+
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
         if (winner === 'Draw') {
@@ -137,6 +138,12 @@ const display = (() => {
             playerO.classList.add('active-turn');
             playerX.classList.remove('active-turn');
         }
+    }
+
+    // Resets the player turn to start with player X by adding 'active-turn' class to playerX and removing it from playerO 
+    const resetPlayerTurn = () => {
+        playerX.classList.add('active-turn');
+        playerO.classList.remove('active-turn');
     }
 
     // Sets the color of the marker based on the current player's mark
