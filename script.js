@@ -41,7 +41,7 @@ const gameFlow = (() => {
 
     // Function to get the current player's mark based on the round number
     const getCurrentMark = () => {
-        return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
+        return round % 2 === 1 ? playerX.getMarker() : playerO.getMarker();
     };
 
     // Checks if the current move results in a win for the current player.
@@ -131,13 +131,32 @@ const display = (() => {
         }
     }
 
-    // Sets the color of the marker based on the current player's mark.
+    // Sets the color of the marker based on the current player's mark
     const setMarkColor = (event) => {
         const targetElement = event.target;
         const currentPlayerMark = gameFlow.getCurrentMark();
 
         targetElement.classList.add(currentPlayerMark);
     }
+
+    // Handles click events on individual board cells
+    const cellClickHandler = (event) => {
+        const clickedCell = event.target;
+
+        if (clickedCell.textContent === '') {
+            setMarkColor(event);
+        }
+
+        if (gameFlow.checkGameOver() || clickedCell.textContent !== '') return;
+        gameFlow.playRound(parseInt(clickedCell.id));
+        updateGameBoard();
+        handleTurn();
+
+    }
+
+    cellElements.forEach(cell => {
+        cell.addEventListener('click', cellClickHandler);
+    })
 
     return { setMessageElement, displayWinnerMessage }
 })();
