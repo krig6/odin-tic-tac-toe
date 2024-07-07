@@ -86,7 +86,13 @@ const gameFlow = (() => {
         return gameOver;
     }
 
-    return { checkGameOver, getCurrentMark, playRound };
+    // Resets the game flow variables `round` and `gameOver` to their initial states.
+    const resetGameFlow = () => {
+        round = 1;
+        gameOver = false;
+    }
+
+    return { checkGameOver, getCurrentMark, playRound, resetGameFlow };
 })();
 
 // Module for managing display messages and elements
