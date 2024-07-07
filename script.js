@@ -88,6 +88,8 @@ const gameFlow = (() => {
 const display = (() => {
     const messageContainer = document.querySelector('[data-message]');
     const cellElements = document.querySelectorAll('[data-cell]');
+    const playerX = document.querySelector('[data-player-x]')
+    const playerO = document.querySelector('[data-player-o]')
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -108,6 +110,19 @@ const display = (() => {
     const updateGameBoard = () => {
         for (let i = 0; i < cellElements.length; i++) {
             cellElements[i].textContent = gameBoard.getMarker(i);
+        }
+    }
+
+    // Updates the visual indication of the current player's turn on the UI
+    const handleTurn = () => {
+        const currentPlayerMark = gameBoard.getCurrentMark();
+
+        if (currentPlayerMark === 'X') {
+            playerX.classList.add('active-turn');
+            playerO.classList.remove('active-turn');
+        } else {
+            playerO.classList.add('active-turn');
+            playerX.classList.remove('active-turn');
         }
     }
 
