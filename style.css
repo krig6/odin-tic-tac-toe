@@ -106,20 +106,10 @@ main {
 /* Grid squares */
 .square {
   cursor: pointer;
-  background-color: transparent;
-  border: none;
+  background-color: var(--app-background-color);
+  border: 4px solid var(--accent-light-color);
   font-size: 8rem;
   color: var(--x-mark-color);
-}
-
-/* Border-right */
-.square:not(:nth-child(3n)) {
-  border-right: 5px solid var(--accent-light-color);
-}
-
-/* Border-bottom */
-.square:nth-child(-n + 6) {
-  border-bottom: 5px solid var(--accent-light-color);
 }
 
 /* New Game Button */
@@ -163,4 +153,32 @@ main {
   font-size: 2.5rem;
   color: var(--text-color);
   font-weight: 900;
+}
+
+/* Animations */
+.new-btn:active {
+  transform: scale(0.9); /* Shrink on press */
+  box-shadow: 0 0 20px var(--accent-light-color); /* Shadow on press */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.player-info.active-turn {
+  animation: blink 1s infinite; /* Blink animation */
+}
+
+.square:hover {
+  transform: scale(1.1);
+  transition: transform var(--transition-fast);
+  box-shadow: 0 0 10px var(--accent-light-color);
 }
