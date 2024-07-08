@@ -78,7 +78,6 @@ const gameFlow = (() => {
         }
         round++;
 
-        display.setMessageElement(`${getCurrentMark()}'s turn`)
     }
 
     // Checks if the game is over and returns true if it is, false otherwise.
@@ -104,15 +103,25 @@ const display = (() => {
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
     const newGameButton = document.querySelector('[data-action="new-game"]');
-
+    const overlay = document.querySelector('[data-overlay]')
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
-        if (winner === 'Draw') {
-            setMessageElement(`It's a draw!`)
+        const message = winner === 'Draw' ? `It's a draw!` : `Player ${winner} has won!`;
+        setMessageElement(message);
+        updateScore(winner === 'Draw' ? null : winner);
+        toggleOverlay(true);
+    }
+
+    // Toggles the visibility of the overlay and manages the body's overflow style.
+    const toggleOverlay = (show) => {
+        messageContainer.classList.toggle('show-overlay');
+        if (show) {
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         } else {
-            setMessageElement(`Player ${winner} has won!`);
-            updateScore(gameFlow.getCurrentMark());
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     }
 
