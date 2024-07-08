@@ -119,6 +119,7 @@ const display = (() => {
         if (show) {
             overlay.style.display = 'block';
             document.body.style.overflow = 'hidden';
+            deactivateTurnIndicator();
         } else {
             overlay.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -153,6 +154,14 @@ const display = (() => {
         playerO.classList.remove('active-turn');
     }
 
+    // Disables the turn indicator, intended for use when displaying the end-of-game message
+    const deactivateTurnIndicator = () => {
+        const currentPlayerMark = gameFlow.getCurrentMark();
+        const playerElement = currentPlayerMark === 'X' ? playerX : playerO;
+
+        playerElement.classList.remove('active-turn');
+    }
+
     // Sets the color of the marker based on the current player's mark
     const setMarkColor = (event) => {
         const targetElement = event.target;
@@ -185,8 +194,10 @@ const display = (() => {
         if (gameFlow.checkGameOver() || clickedCell.textContent !== '') return;
         gameFlow.playRound(parseInt(clickedCell.id));
         updateGameBoard();
-        handleTurn();
 
+        if (!gameFlow.checkGameOver()) {
+            handleTurn();
+        }
     }
 
     // Function to start a new game by resetting all game state and UI elements except scores
