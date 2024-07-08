@@ -113,8 +113,8 @@ main {
   color: var(--x-mark-color);
 }
 
-/* New Game Button */
-.new-btn {
+/* Reset Game Button */
+.reset-btn {
   cursor: pointer;
   padding: 1rem;
   color: var(--accent-light-color);
@@ -182,7 +182,7 @@ main {
 }
 
 /* Animations */
-.new-btn:active {
+.reset-btn:active {
   transform: scale(0.9); /* Shrink on press */
   box-shadow: 0 0 20px var(--accent-light-color); /* Shadow on press */
 }
