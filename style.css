@@ -133,6 +133,7 @@ main {
   border-radius: 1rem;
 }
 
+/* Player Info */
 .X {
   color: var(--x-mark-color);
 }
@@ -155,4 +156,11 @@ main {
 
 .player-info:last-child {
   color: var(--o-mark-color);
+}
+
+/* Game Notifications */
+.game-notification {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 900;
 }
