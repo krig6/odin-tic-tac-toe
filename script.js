@@ -205,8 +205,14 @@ const display = (() => {
         updateGameBoard();
         clearMarkClasses();
         resetPlayerTurn();
-        setMessageElement(`X's turn`);
+        setMessageElement(``);
     })
+
+    // Event listener to close the overlay when clicked
+    overlay.addEventListener('click', () => {
+        toggleOverlay(false);
+        setMessageElement(``);
+    });
 
     return { setMessageElement, displayWinnerMessage }
 })();
