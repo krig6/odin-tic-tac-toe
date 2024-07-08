@@ -178,7 +178,24 @@ main {
 }
 
 .show-overlay {
-  transform: scale(2.5);
+  animation: bounce 1s infinite, scale 1s forwards;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -25px;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2.5);
+  }
 }
 
 /* Animations */
