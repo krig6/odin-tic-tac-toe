@@ -46,7 +46,7 @@ html {
 /* Header */
 header {
   margin-top: 2rem;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 /* Main */
@@ -58,7 +58,7 @@ main {
 }
 
 /* Game Buttons */
-.game-buttons {
+.player-info-section {
   display: flex;
   gap: 1rem;
   font-size: 3.5rem;
@@ -68,7 +68,6 @@ main {
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 8rem;
   border-bottom: none;
   border-radius: 0.4rem;
@@ -76,6 +75,16 @@ main {
 
 .player-info i {
   font-weight: 1000;
+  font-size: 5rem;
+}
+
+.score {
+  font-size: 4rem;
+}
+
+.divider {
+  font-size: 5rem;
+  color: var(--accent-light-color);
 }
 
 /* Game Message */
@@ -122,4 +131,28 @@ main {
   font-weight: 900;
   border: 4px solid var(--accent-light-color);
   border-radius: 1rem;
+}
+
+.X {
+  color: var(--x-mark-color);
+}
+
+.O {
+  color: var(--o-mark-color);
+}
+
+.player-info:nth-child(1).active-turn {
+  border-bottom: 5px solid var(--x-mark-color);
+}
+
+.player-info:last-child.active-turn {
+  border-bottom: 5px solid var(--o-mark-color);
+}
+
+.player-info:nth-child(1) {
+  color: var(--x-mark-color);
+}
+
+.player-info:last-child {
+  color: var(--o-mark-color);
 }
