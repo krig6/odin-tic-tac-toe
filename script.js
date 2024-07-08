@@ -102,7 +102,7 @@ const display = (() => {
     const playerO = document.querySelector('[data-player-o]')
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
-    const newGameButton = document.querySelector('[data-action="new-game"]');
+    const resetGameButton = document.querySelector('[data-action="reset-game"]');
     const overlay = document.querySelector('[data-overlay]')
 
     //  Displays the winner message based on the game outcome
@@ -205,17 +205,19 @@ const display = (() => {
         setMessageElement(``);
     }
 
+    // Function to reset player's scores
+    const resetScores = () => {
+        scoreElementX.textContent = '0';
+        scoreElementO.textContent = '0';
+    }
+
     cellElements.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
     })
 
-    newGameButton.addEventListener('click', () => {
-        gameBoard.resetBoard();
-        gameFlow.resetGameFlow();
-        updateGameBoard();
-        clearMarkClasses();
-        resetPlayerTurn();
-        setMessageElement(``);
+    resetGameButton.addEventListener('click', () => {
+        startNewGame();
+        resetScores();
     })
 
     // Event listener to close the overlay when clicked
