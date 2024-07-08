@@ -140,14 +140,11 @@ const display = (() => {
     // Updates the visual indication of the current player's turn on the UI
     const handleTurn = () => {
         const currentPlayerMark = gameFlow.getCurrentMark();
+        const activePlayer = currentPlayerMark === 'X' ? playerX : playerO;
+        const inactivePlayer = currentPlayerMark === 'X' ? playerO : playerX;
 
-        if (currentPlayerMark === 'X') {
-            playerX.classList.add('active-turn');
-            playerO.classList.remove('active-turn');
-        } else {
-            playerO.classList.add('active-turn');
-            playerX.classList.remove('active-turn');
-        }
+        activePlayer.classList.add('active-turn')
+        inactivePlayer.classList.remove('active-turn')
     }
 
     // Resets the player turn to start with player X by adding 'active-turn' class to playerX and removing it from playerO 
