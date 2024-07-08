@@ -170,11 +170,8 @@ const display = (() => {
 
     // Updates the score display for the specified player ('X' or 'O').
     const updateScore = (player) => {
-        if (player === 'X') {
-            scoreElementX.textContent = parseInt(scoreElementX.textContent) + 1;
-        } else if (player === 'O') {
-            scoreElementO.textContent = parseInt(scoreElementO.textContent) + 1;
-        }
+        const scoreElement = player === 'X' ? scoreElementX : scoreElementO;
+        scoreElement.textContent = parseInt(scoreElement.textContent) + 1;
     }
 
     // Handles click events on individual board cells
