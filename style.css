@@ -41,6 +41,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 /* Header */
@@ -155,30 +156,27 @@ main {
   font-weight: 900;
 }
 
-/* Animations */
-.new-btn:active {
-  transform: scale(0.9); /* Shrink on press */
-  box-shadow: 0 0 20px var(--accent-light-color); /* Shadow on press */
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  width: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: none;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+.game-notification {
+  position: sticky;
+  top: 45%;
+  transition: var(--transition-normal);
+  pointer-events: none;
+  z-index: 1100;
+  color: var(--accent-light-color);
 }
 
-.player-info.active-turn {
-  animation: blink 1s infinite; /* Blink animation */
-}
-
-.square:hover {
-  transform: scale(1.1);
-  transition: transform var(--transition-fast);
-  box-shadow: 0 0 10px var(--accent-light-color);
+.show-overlay {
+  transform: scale(2.5);
 }
