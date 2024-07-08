@@ -195,6 +195,16 @@ const display = (() => {
 
     }
 
+    // Function to start a new game by resetting all game state and UI elements except scores
+    const startNewGame = () => {
+        gameBoard.resetBoard();
+        gameFlow.resetGameFlow();
+        updateGameBoard();
+        clearMarkClasses();
+        resetPlayerTurn();
+        setMessageElement(``);
+    }
+
     cellElements.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
     })
@@ -211,7 +221,7 @@ const display = (() => {
     // Event listener to close the overlay when clicked
     overlay.addEventListener('click', () => {
         toggleOverlay(false);
-        setMessageElement(``);
+        startNewGame();
     });
 
     return { setMessageElement, displayWinnerMessage }
