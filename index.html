@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <div class="overlay" data-overlay></div>
     <div class="game-container">
         <header>
             <h1><i class="bx bx-x"></i><i class="bx bx-radio-circle"></i></h1>
@@ -33,9 +34,9 @@
                     <span class="score" data-o-score>0</span>
                 </div>
             </section>
-            <section>
-                <p class="game-notification" data-message>X's turn</p>
-            </section>
+
+            <section class="game-notification" data-message></section>
+
             <section class="game-board" data-board>
                 <button class="square" id="1" data-cell></button>
                 <button class="square" id="2" data-cell></button>
