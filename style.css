@@ -178,8 +178,9 @@ main {
 }
 
 .show-overlay {
-  animation: bounce 1s infinite, scale 1s forwards;
+  animation: bounce 1s infinite 700ms, scale 1s forwards;
 }
+
 @keyframes bounce {
   0%,
   100% {
@@ -189,6 +190,7 @@ main {
     margin-top: -25px;
   }
 }
+
 @keyframes scale {
   0% {
     transform: scale(1);
