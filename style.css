@@ -180,3 +180,31 @@ main {
 .show-overlay {
   transform: scale(2.5);
 }
+
+/* Animations */
+.new-btn:active {
+  transform: scale(0.9); /* Shrink on press */
+  box-shadow: 0 0 20px var(--accent-light-color); /* Shadow on press */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.player-info.active-turn {
+  animation: blink 1s infinite; /* Blink animation */
+}
+
+.square:hover {
+  transform: scale(1.1);
+  transition: transform var(--transition-fast);
+  box-shadow: 0 0 10px var(--accent-light-color);
+}
