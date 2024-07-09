@@ -252,11 +252,13 @@ const display = (() => {
         animatedText.classList.add('strikethrough');
         handleCellClickability(false);
         setTimeout(function () {
-            animatedText.style.display = 'none';
-            handleCellClickability(true);
-            toggleHoverEffect();
-            toggleTurnIndicator();
-        }, 2000);
+            animatedText.classList.add('fade-out');
+            setTimeout(function () {
+                handleCellClickability(true);
+                toggleHoverEffect();
+                toggleTurnIndicator();
+            }, 1000);
+        }, 1000);
     })
 
     return { setMessageElement, displayWinnerMessage }
