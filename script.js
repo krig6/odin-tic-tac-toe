@@ -105,7 +105,11 @@ const display = (() => {
     const resetGameButton = document.querySelector('[data-action="reset-game"]');
     const overlay = document.querySelector('[data-overlay]')
     const animatedText = document.querySelector('[data-animated-text]');
+    let clickable = false;
 
+    const handleCellClickability = (isClickable) => {
+        clickable = isClickable;
+    }
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -187,6 +191,7 @@ const display = (() => {
 
     // Handles click events on individual board cells
     const cellClickHandler = (event) => {
+        if (!clickable) return;
         const clickedCell = event.target;
 
         if (clickedCell.textContent === '') {
@@ -235,6 +240,11 @@ const display = (() => {
 
     animatedText.addEventListener('animationend', () => {
         animatedText.classList.add('strikethrough');
+        handleCellClickability(false);
+        setTimeout(function () {
+            animatedText.style.display = 'none';
+            handleCellClickability(true);
+        }, 2000);
     })
 
     return { setMessageElement, displayWinnerMessage }

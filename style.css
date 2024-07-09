@@ -247,6 +247,7 @@ main {
   animation: scaleAndFade var(--transition-slow) ease-out forwards;
   position: relative;
   opacity: 0;
+  pointer-events: none;
 }
 
 @keyframes scaleAndFade {
