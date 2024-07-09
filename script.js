@@ -138,6 +138,10 @@ const display = (() => {
         });
     }
 
+    const toggleTurnIndicator = () => {
+        playerX.classList.add('active-turn');
+    }
+
     // Sets the text content of the message container element
     const setMessageElement = (message) => {
         messageContainer.textContent = message;
@@ -251,6 +255,7 @@ const display = (() => {
             animatedText.style.display = 'none';
             handleCellClickability(true);
             toggleHoverEffect();
+            toggleTurnIndicator();
         }, 2000);
     })
 
