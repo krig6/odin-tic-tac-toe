@@ -251,14 +251,21 @@ const display = (() => {
     animatedText.addEventListener('animationend', () => {
         animatedText.classList.add('strikethrough');
         handleCellClickability(false);
-        setTimeout(function () {
+
+        const clickHandler = () => {
+            // Remove the click event listener to avoid multiple triggers
+            document.removeEventListener('click', clickHandler);
+
+            // Start the fade-out animation after the user clicks
             animatedText.classList.add('fade-out');
-            setTimeout(function () {
+            setTimeout(() => {
                 handleCellClickability(true);
                 toggleHoverEffect();
                 toggleTurnIndicator();
             }, 1000);
-        }, 1000);
+        };
+
+        document.addEventListener('click', clickHandler);
     })
 
     return { setMessageElement, displayWinnerMessage }
