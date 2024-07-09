@@ -111,6 +111,10 @@ main {
   border: 4px solid var(--accent-light-color);
   font-size: 8rem;
   color: var(--x-mark-color);
+  border-radius: 1rem;
+  box-shadow: -1px -1px 15px 10px var(--accent-light-color);
+  -webkit-box-shadow: -1px -1px 15px 10px var(--accent-light-color);
+  -moz-box-shadow: -1px -1px 15px 10px var(--accent-light-color);
 }
 
 /* Reset Game Button */
@@ -122,6 +126,7 @@ main {
   font-weight: 900;
   border: 4px solid var(--accent-light-color);
   border-radius: 1rem;
+  background-color: transparent;
 }
 
 /* Player Info */
@@ -225,5 +230,4 @@ main {
 .square:hover {
   transform: scale(1.1);
   transition: transform var(--transition-fast);
-  box-shadow: 0 0 10px var(--accent-light-color);
 }
