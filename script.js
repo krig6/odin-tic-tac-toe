@@ -104,6 +104,8 @@ const display = (() => {
     const scoreElementO = document.querySelector('[data-o-score]');
     const resetGameButton = document.querySelector('[data-action="reset-game"]');
     const overlay = document.querySelector('[data-overlay]')
+    const animatedText = document.querySelector('[data-animated-text]');
+
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -230,6 +232,10 @@ const display = (() => {
         toggleOverlay(false);
         startNewGame();
     });
+
+    animatedText.addEventListener('animationend', () => {
+        animatedText.classList.add('strikethrough');
+    })
 
     return { setMessageElement, displayWinnerMessage }
 })();
