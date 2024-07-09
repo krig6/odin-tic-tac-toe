@@ -250,7 +250,6 @@ const display = (() => {
 
     animatedText.addEventListener('animationend', () => {
         animatedText.classList.add('strikethrough');
-        handleCellClickability(false);
 
         const clickHandler = () => {
             // Remove the click event listener to avoid multiple triggers
@@ -261,7 +260,7 @@ const display = (() => {
             setTimeout(() => {
                 handleCellClickability(true);
                 toggleHoverEffect();
-                toggleTurnIndicator();
+                handleTurn();
             }, 1000);
         };
 
