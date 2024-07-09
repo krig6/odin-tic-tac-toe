@@ -238,7 +238,7 @@ main {
   animation: blink 1s infinite; /* Blink animation */
 }
 
-.square:hover {
+.enable-hover:hover {
   transform: scale(1.1);
   transition: transform var(--transition-fast);
 }
