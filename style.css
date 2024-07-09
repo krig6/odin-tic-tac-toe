@@ -183,14 +183,16 @@ main {
 .game-notification {
   position: absolute;
   top: 45%;
-  transition: var(--transition-normal);
+  transition: var(--transition-slow);
   pointer-events: none;
   z-index: 1100;
   color: var(--accent-light-color);
+  transform: scale(0);
 }
 
 .show-overlay {
-  animation: bounce 1s infinite 700ms, scale 1s forwards;
+  animation: bounce 1s infinite 820ms;
+  transform: scale(2.5);
 }
 
 @keyframes bounce {
@@ -200,15 +202,6 @@ main {
   }
   50% {
     margin-top: -25px;
-  }
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(2.5);
   }
 }
 
