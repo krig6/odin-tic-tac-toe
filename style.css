@@ -45,7 +45,7 @@ html {
 }
 
 /* Header */
-header {
+.loading-animation {
   text-align: center;
   font-size: 2rem;
   color: var(--text-color);
@@ -243,7 +243,7 @@ main {
   transition: transform var(--transition-fast);
 }
 
-.header-text {
+.animated-text {
   animation: scaleAndFade 2.5s ease-out forwards;
   opacity: 0;
 }
