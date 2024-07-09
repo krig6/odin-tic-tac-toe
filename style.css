@@ -46,8 +46,13 @@ html {
 
 /* Header */
 header {
-  margin-top: 2rem;
+  text-align: center;
   font-size: 2rem;
+  color: var(--text-color);
+  margin-top: 2rem;
+  position: fixed;
+  z-index: 1500;
+  word-spacing: 1.5rem;
 }
 
 /* Main */
@@ -236,4 +241,20 @@ main {
 .square:hover {
   transform: scale(1.1);
   transition: transform var(--transition-fast);
+}
+
+.header-text {
+  animation: scaleAndFade 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes scaleAndFade {
+  0% {
+    transform: scale(12);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
