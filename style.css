@@ -208,7 +208,13 @@ main {
 /* Animations */
 .reset-btn:active {
   transform: scale(0.9); /* Shrink on press */
-  box-shadow: 0 0 20px var(--accent-light-color); /* Shadow on press */
+  box-shadow: 0 2px 4px var(--accent-light-color);
+}
+
+.reset-btn:hover {
+  background-color: var(--accent-light-color);
+  color: var(--app-background-color);
+  box-shadow: 0 4px 6px var(--accent-light-color);
 }
 
 @keyframes blink {
