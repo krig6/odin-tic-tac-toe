@@ -244,7 +244,8 @@ main {
 }
 
 .animated-text {
-  animation: scaleAndFade 2.5s ease-out forwards;
+  animation: scaleAndFade var(--transition-slow) ease-out forwards;
+  position: relative;
   opacity: 0;
 }
 
@@ -256,5 +257,27 @@ main {
   100% {
     transform: scale(1.2);
     opacity: 1;
+  }
+}
+
+.animated-text.strikethrough::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  width: 100%;
+  height: 5.5px;
+  background-color: var(--text-color);
+  box-shadow: 2px 4px 16px var(--text-color);
+  animation: strikeAnimation var(--transition-fast) forwards;
+  border-radius: 50%;
+}
+
+@keyframes strikeAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 102%;
   }
 }
