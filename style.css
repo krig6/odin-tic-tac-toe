@@ -267,9 +267,10 @@ main {
   bottom: 50%;
   width: 100%;
   height: 5.5px;
-  background-color: var(--text-color);
-  box-shadow: 2px 4px 16px var(--text-color);
-  animation: strikeAnimation var(--transition-fast) forwards;
+  background-color: var(--accent-light-color);
+  box-shadow: 0 4px 8px var(--accent-light-color),
+    inset 0 0 4px var(--text-color);
+  animation: strikeAnimation var(--transition-normal) forwards;
   border-radius: 50%;
 }
 
