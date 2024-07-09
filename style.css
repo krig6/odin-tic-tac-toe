@@ -53,6 +53,7 @@ html {
   position: fixed;
   z-index: 1500;
   word-spacing: 1.5rem;
+  pointer-events: none;
 }
 
 /* Main */
@@ -281,5 +282,20 @@ main {
   }
   to {
     width: 102%;
+  }
+}
+
+.fade-out {
+  animation: fadeOut var(--transition-slow);
+  transform: scale(1.2);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
