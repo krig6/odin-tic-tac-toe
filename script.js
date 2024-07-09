@@ -132,6 +132,12 @@ const display = (() => {
         }
     }
 
+    const toggleHoverEffect = () => {
+        cellElements.forEach(cell => {
+            cell.classList.add('enable-hover');
+        });
+    }
+
     // Sets the text content of the message container element
     const setMessageElement = (message) => {
         messageContainer.textContent = message;
@@ -244,6 +250,7 @@ const display = (() => {
         setTimeout(function () {
             animatedText.style.display = 'none';
             handleCellClickability(true);
+            toggleHoverEffect();
         }, 2000);
     })
 
