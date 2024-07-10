@@ -21,6 +21,7 @@
   --x-mark-color: #7aa6d6;
   --accent-light-color: #a2d3c2;
   --text-color: #454545;
+  --overlay-color: rgba(221, 226, 223, 0.8);
 
   /* Transition */
   --transition-fast: 0.1s;
@@ -176,7 +177,7 @@ main {
   top: 0;
   width: 100vw;
   height: 0%;
-  background: var(--accent-light-color);
+  background-color: var(--overlay-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,7 +199,7 @@ main {
 
 .overlay.show-overlay {
   height: 100vh;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 @keyframes bounceIn {
