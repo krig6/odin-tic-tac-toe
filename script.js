@@ -1,7 +1,7 @@
 // Factory function to create player objects with a specific marker
 const createPlayer = (marker) => {
     const getMarker = () => marker;
-    return { getMarker }
+    return { getMarker };
 };
 
 // Module for managing the game board
@@ -13,22 +13,22 @@ const gameBoard = (() => {
     const setMarker = (index, marker) => {
         if (index >= board.length) return;
         board[index] = marker;
-    }
+    };
 
     // Retrieve the marker from the board array at the given index
     const getMarker = (index) => {
         if (index >= board.length) return;
         return board[index];
-    }
+    };
 
     // Clear the board by resetting all positions to an empty string
     const resetBoard = () => {
         for (let i = 0; i < board.length; i++) {
-            board[i] = ''
+            board[i] = '';
         }
     }
 
-    return { setMarker, getMarker, resetBoard }
+    return { setMarker, getMarker, resetBoard };
 })();
 
 // Module to handle the game flow logic for the Tic Tac Toe game
@@ -40,9 +40,7 @@ const gameFlow = (() => {
     let round = 1;
 
     // Function to get the current player's mark based on the round number
-    const getCurrentMark = () => {
-        return round % 2 === 1 ? playerX.getMarker() : playerO.getMarker();
-    };
+    const getCurrentMark = () => (round % 2 === 1) ? playerX.getMarker() : playerO.getMarker();
 
     // Checks if the current move results in a win for the current player.
     const checkWinner = (buttonIndex) => {
@@ -81,9 +79,7 @@ const gameFlow = (() => {
     }
 
     // Checks if the game is over and returns true if it is, false otherwise.
-    const checkGameOver = () => {
-        return gameOver;
-    }
+    const checkGameOver = () => gameOver;
 
     // Resets the game flow variables `round` and `gameOver` to their initial states.
     const resetGameFlow = () => {
@@ -98,18 +94,22 @@ const gameFlow = (() => {
 const display = (() => {
     const messageContainer = document.querySelector('[data-message]');
     const cellElements = document.querySelectorAll('[data-cell]');
-    const playerX = document.querySelector('[data-player-x]')
-    const playerO = document.querySelector('[data-player-o]')
+    const playerX = document.querySelector('[data-player-x]');
+    const playerO = document.querySelector('[data-player-o]');
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
     const resetGameButton = document.querySelector('[data-action="reset-game"]');
-    const overlay = document.querySelector('[data-overlay]')
+    const overlay = document.querySelector('[data-overlay]');
     const animatedText = document.querySelector('[data-animated-text]');
     let clickable = false;
 
+    // Function to toggle the clickability of cells
     const handleCellClickability = (isClickable) => {
         clickable = isClickable;
     }
+
+    // Sets the text content of the message container element
+    const setMessageElement = (message) => messageContainer.textContent = message;
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -117,14 +117,11 @@ const display = (() => {
         setMessageElement(message);
         updateScore(winner === 'Draw' ? null : winner);
         toggleOverlay(true);
-        cellElements.forEach(cell => {
-            cell.classList.remove('enable-hover');
-        });
+        cellElements.forEach(cell => cell.classList.remove('enable-hover'));
     }
 
     // Toggles the visibility of the overlay and manages the body's overflow style.
     const toggleOverlay = (show) => {
-
         if (show) {
             overlay.classList.add('show-overlay');
             document.body.style.overflow = 'hidden';
@@ -135,15 +132,9 @@ const display = (() => {
         }
     }
 
+    // Function to add the 'enable-hover' class on each cell element
     const toggleHoverEffect = () => {
-        cellElements.forEach(cell => {
-            cell.classList.add('enable-hover');
-        });
-    }
-
-    // Sets the text content of the message container element
-    const setMessageElement = (message) => {
-        messageContainer.textContent = message;
+        cellElements.forEach(cell => cell.classList.add('enable-hover'));
     }
 
     // Update the display of each game board cell with the current marker from gameBoard
@@ -159,8 +150,8 @@ const display = (() => {
         const activePlayer = currentPlayerMark === 'X' ? playerX : playerO;
         const inactivePlayer = currentPlayerMark === 'X' ? playerO : playerX;
 
-        activePlayer.classList.add('active-turn')
-        inactivePlayer.classList.remove('active-turn')
+        activePlayer.classList.add('active-turn');
+        inactivePlayer.classList.remove('active-turn');
     }
 
     // Resets the player turn to start with player X by adding 'active-turn' class to playerX and removing it from playerO 
@@ -187,9 +178,7 @@ const display = (() => {
 
     // Clears marker classes ('O' and 'X') from all board cells.
     const clearMarkClasses = () => {
-        cellElements.forEach(cell => {
-            cell.classList.remove('O', 'X');
-        });
+        cellElements.forEach(cell => cell.classList.remove('O', 'X'));
     }
 
     // Updates the score display for the specified player ('X' or 'O').
@@ -223,7 +212,6 @@ const display = (() => {
         updateGameBoard();
         clearMarkClasses();
         resetPlayerTurn();
-        // setMessageElement(``);
     }
 
     // Function to reset player's scores
@@ -232,9 +220,7 @@ const display = (() => {
         scoreElementO.textContent = '0';
     }
 
-    cellElements.forEach(cell => {
-        cell.addEventListener('click', cellClickHandler);
-    })
+    cellElements.forEach(cell => cell.addEventListener('click', cellClickHandler));
 
     resetGameButton.addEventListener('click', () => {
         startNewGame();
@@ -248,6 +234,7 @@ const display = (() => {
         startNewGame();
     });
 
+    // Event listener for the 'animationend' event on animatedText element.
     animatedText.addEventListener('animationend', () => {
         animatedText.classList.add('strikethrough');
 
@@ -267,5 +254,5 @@ const display = (() => {
         document.addEventListener('click', clickHandler);
     })
 
-    return { setMessageElement, displayWinnerMessage }
+    return { displayWinnerMessage };
 })();
