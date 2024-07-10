@@ -117,6 +117,9 @@ const display = (() => {
         setMessageElement(message);
         updateScore(winner === 'Draw' ? null : winner);
         toggleOverlay(true);
+        cellElements.forEach(cell => {
+            cell.classList.remove('enable-hover');
+        });
     }
 
     // Toggles the visibility of the overlay and manages the body's overflow style.
@@ -241,6 +244,7 @@ const display = (() => {
     // Event listener to close the overlay when clicked
     overlay.addEventListener('click', () => {
         toggleOverlay(false);
+        toggleHoverEffect();
         startNewGame();
     });
 
