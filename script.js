@@ -121,13 +121,13 @@ const display = (() => {
 
     // Toggles the visibility of the overlay and manages the body's overflow style.
     const toggleOverlay = (show) => {
-        messageContainer.classList.toggle('show-overlay');
+
         if (show) {
-            overlay.style.display = 'block';
+            overlay.classList.add('show-overlay');
             document.body.style.overflow = 'hidden';
             deactivateTurnIndicator();
         } else {
-            overlay.style.display = 'none';
+            overlay.classList.remove('show-overlay');
             document.body.style.overflow = 'auto';
         }
     }
@@ -220,7 +220,7 @@ const display = (() => {
         updateGameBoard();
         clearMarkClasses();
         resetPlayerTurn();
-        setMessageElement(``);
+        // setMessageElement(``);
     }
 
     // Function to reset player's scores
