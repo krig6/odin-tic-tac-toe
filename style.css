@@ -33,60 +33,60 @@
 html {
   background: var(--app-background-color);
   color: var(--text-color);
-  font-size: 16px;
   font-family: "Nunito", sans-serif;
+  font-size: 16px;
   overflow: hidden;
 }
 
 /* Container */
 .game-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   padding: 5rem;
   position: relative;
 }
 
-/* Header */
+/* Loading Animation */
 .loading-animation {
-  text-align: center;
-  font-size: 2rem;
   color: var(--text-color);
+  font-size: 2rem;
   margin-top: 2rem;
-  position: fixed;
-  z-index: 1500;
-  word-spacing: 1.5rem;
   pointer-events: none;
+  position: fixed;
+  text-align: center;
+  word-spacing: 1.5rem;
+  z-index: 1500;
 }
 
 /* Main */
 main {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-/* Game Buttons */
+/* Player Info */
 .player-info-section {
   display: flex;
-  gap: 1rem;
   font-size: 3.5rem;
+  gap: 1rem;
 }
 
 .player-info {
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 8rem;
   border-bottom: none;
   border-radius: 0.4rem;
+  display: flex;
+  gap: 8rem;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .player-info i {
-  font-weight: 1000;
   font-size: 5rem;
+  font-weight: 1000;
 }
 
 .score {
@@ -94,49 +94,47 @@ main {
 }
 
 .divider {
-  font-size: 5rem;
   color: var(--accent-light-color);
+  font-size: 5rem;
 }
 
 /* Game Message */
 .game-message {
-  text-align: center;
   font-size: 1.5rem;
   margin-top: 1.2rem;
+  text-align: center;
 }
 
 /* Game Board */
 .game-board {
   display: grid;
-  height: 500px;
-  width: 500px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  height: 500px;
+  width: 500px;
 }
 
 /* Grid squares */
 .square {
-  cursor: pointer;
   background-color: var(--app-background-color);
   border: 4px solid var(--accent-light-color);
-  font-size: 8rem;
-  color: var(--x-mark-color);
   border-radius: 1rem;
   box-shadow: 0px 0px 33px 9px var(--accent-light-color);
-  -webkit-box-shadow: 0px 0px 33px 9px var(--accent-light-color);
-  -moz-box-shadow: 0px 0px 33px 9px var(--accent-light-color);
+  color: var(--x-mark-color);
+  cursor: pointer;
+  font-size: 8rem;
 }
 
 /* Reset Game Button */
 .reset-btn {
-  cursor: pointer;
-  padding: 1rem;
-  color: var(--accent-light-color);
-  font-size: 1.5rem;
-  font-weight: 900;
+  background-color: transparent;
   border: 4px solid var(--accent-light-color);
   border-radius: 1rem;
-  background-color: transparent;
+  color: var(--accent-light-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 1rem;
 }
 
 /* Player Info */
@@ -166,40 +164,108 @@ main {
 
 /* Game Notifications */
 .game-notification {
-  font-size: 2.5rem;
   color: var(--text-color);
+  font-size: 2.5rem;
   font-weight: 900;
 }
 
 /* Overlay */
 .overlay {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 0%;
+  align-items: center;
   background-color: var(--overlay-color);
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  transition: var(--transition-normal);
+  height: 0%;
+  justify-content: center;
   opacity: 0;
-}
-
-.game-notification {
-  position: fixed;
-  text-align: center;
-  pointer-events: none;
-  transition: var(--transition-slow);
-  color: var(--text-color);
-  opacity: 1;
-  font-size: 8rem;
-  animation: bounceIn 1.5s infinite;
+  position: absolute;
+  top: 0;
+  transition: var(--transition-normal);
+  width: 100vw;
 }
 
 .overlay.show-overlay {
   height: 100vh;
   opacity: 1;
+}
+
+.game-notification {
+  animation: bounceIn 1.5s infinite;
+  color: var(--text-color);
+  font-size: 8rem;
+  opacity: 1;
+  pointer-events: none;
+  position: fixed;
+  text-align: center;
+  transition: var(--transition-slow);
+}
+
+/* Animations */
+
+.reset-btn:active {
+  box-shadow: 0 2px 4px var(--accent-light-color);
+  transform: scale(0.9);
+}
+
+.reset-btn:hover {
+  background-color: var(--accent-light-color);
+  box-shadow: 0 4px 6px var(--accent-light-color);
+  color: var(--app-background-color);
+}
+
+.player-info.active-turn {
+  animation: blink 1s infinite;
+}
+
+.enable-hover:hover {
+  transform: scale(1.1);
+  transition: transform var(--transition-fast);
+}
+
+.animated-text {
+  animation: scaleAndFade var(--transition-slow) ease-out forwards;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+}
+
+.animated-text.strikethrough::after {
+  animation: strikeAnimation var(--transition-normal) forwards;
+  background-color: var(--accent-light-color);
+  border-radius: 50%;
+  bottom: 50%;
+  box-shadow: 0 4px 8px var(--accent-light-color),
+    inset 0 0 4px var(--text-color);
+  content: "";
+  height: 5.5px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.fade-out {
+  animation: fadeOut var(--transition-slow);
+  transform: scale(1.2);
+}
+
+/* Keyframes */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes strikeAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 102%;
+  }
 }
 
 @keyframes bounceIn {
@@ -218,18 +284,6 @@ main {
   }
 }
 
-/* Animations */
-.reset-btn:active {
-  transform: scale(0.9); /* Shrink on press */
-  box-shadow: 0 2px 4px var(--accent-light-color);
-}
-
-.reset-btn:hover {
-  background-color: var(--accent-light-color);
-  color: var(--app-background-color);
-  box-shadow: 0 4px 6px var(--accent-light-color);
-}
-
 @keyframes blink {
   0% {
     opacity: 1;
@@ -242,22 +296,6 @@ main {
   }
 }
 
-.player-info.active-turn {
-  animation: blink 1s infinite; /* Blink animation */
-}
-
-.enable-hover:hover {
-  transform: scale(1.1);
-  transition: transform var(--transition-fast);
-}
-
-.animated-text {
-  animation: scaleAndFade var(--transition-slow) ease-out forwards;
-  position: relative;
-  opacity: 0;
-  pointer-events: none;
-}
-
 @keyframes scaleAndFade {
   0% {
     transform: scale(12);
@@ -266,43 +304,5 @@ main {
   100% {
     transform: scale(1.2);
     opacity: 1;
-  }
-}
-
-.animated-text.strikethrough::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-  width: 100%;
-  height: 5.5px;
-  background-color: var(--accent-light-color);
-  box-shadow: 0 4px 8px var(--accent-light-color),
-    inset 0 0 4px var(--text-color);
-  animation: strikeAnimation var(--transition-normal) forwards;
-  border-radius: 50%;
-}
-
-@keyframes strikeAnimation {
-  from {
-    width: 0;
-  }
-  to {
-    width: 102%;
-  }
-}
-
-.fade-out {
-  animation: fadeOut var(--transition-slow);
-  transform: scale(1.2);
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
