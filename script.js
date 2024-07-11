@@ -92,14 +92,14 @@ const gameFlow = (() => {
 
 // Module for managing display messages and elements
 const display = (() => {
-    const messageContainer = document.querySelector('[data-message]');
+    const endgameMessage = document.querySelector('[data-endgame-message]');
     const cellElements = document.querySelectorAll('[data-cell]');
     const playerX = document.querySelector('[data-player-x]');
     const playerO = document.querySelector('[data-player-o]');
     const scoreElementX = document.querySelector('[data-x-score]');
     const scoreElementO = document.querySelector('[data-o-score]');
     const resetGameButton = document.querySelector('[data-action="reset-game"]');
-    const overlay = document.querySelector('[data-overlay]');
+    const endgameOverlay = document.querySelector('[data-endgame-overlay]');
     const animatedText = document.querySelector('[data-animated-text]');
     let clickable = false;
 
@@ -109,7 +109,7 @@ const display = (() => {
     }
 
     // Sets the text content of the message container element
-    const setMessageElement = (message) => messageContainer.textContent = message;
+    const setMessageElement = (message) => endgameMessage.textContent = message;
 
     //  Displays the winner message based on the game outcome
     const displayWinnerMessage = (winner) => {
@@ -123,11 +123,11 @@ const display = (() => {
     // Toggles the visibility of the overlay and manages the body's overflow style.
     const toggleOverlay = (show) => {
         if (show) {
-            overlay.classList.add('show-overlay');
+            endgameOverlay.classList.add('show-overlay');
             document.body.style.overflow = 'hidden';
             deactivateTurnIndicator();
         } else {
-            overlay.classList.remove('show-overlay');
+            endgameOverlay.classList.remove('show-overlay');
             document.body.style.overflow = 'auto';
         }
     }
@@ -228,7 +228,7 @@ const display = (() => {
     })
 
     // Event listener to close the overlay when clicked
-    overlay.addEventListener('click', () => {
+    endgameOverlay.addEventListener('click', () => {
         toggleOverlay(false);
         toggleHoverEffect();
         startNewGame();
