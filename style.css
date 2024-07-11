@@ -16,13 +16,12 @@
 /* Root Variables */
 :root {
   /* Colors */
-  --app-background-color: #f8f8f8;
-  --o-mark-color: #f194b4;
-  --x-mark-color: #7aa6d6;
-  --accent-light-color: #a2d3c2;
-  --text-color: #71b9a1;
-  --overlay-color: rgba(221, 226, 223, 0.8);
-
+  --app-background-color: #eae6ca;
+  --o-mark-color: #cd853f;
+  --x-mark-color: #4682b4;
+  --accent-light-color: #8b4513;
+  --text-color: #975b31;
+  --overlay-color: rgba(234, 230, 202, 0.8);
   /* Transition */
   --transition-fast: 0.1s;
   --transition-normal: 0.5s;
